@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manga Chapter Reader</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>📖 One Piece Chapter Reader</h1>
+    <div id="user-box">
+      <input type="text" id="username" placeholder="Enter Username" />
+      <button onclick="login()">Login</button>
+      <span id="welcome-msg"></span>
+    </div>
+    <input type="text" id="search-input" placeholder="Search chapters..." onkeyup="searchChapters()" />
+    <button onclick="toggleDarkMode()">🌙</button>
+  </header>
+
+  <main>
+    <section>
+      <h2>📚 Available Chapters</h2>
+      <ul id="chapters">
+        <!-- Chapters will be loaded dynamically -->
+      </ul>
+    </section>
+
+    <section>
+      <h2>🔖 Bookmarked</h2>
+      <ul id="bookmarked-chapters"></ul>
+    </section>
+
+    <section>
+      <h2>💬 Comments</h2>
+      <textarea id="comment" placeholder="Write your comment..."></textarea>
+      <button onclick="addComment()">Post</button>
+      <ul id="comment-list"></ul>
+    </section>
+
+    <section>
+      <h2>➕ Quick Addition</h2>
+      <input type="number" id="num1" placeholder="Number 1" />
+      <input type="number" id="num2" placeholder="Number 2" />
+      <button onclick="calculate()">Add</button>
+      <p id="result"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

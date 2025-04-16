@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pureté Boudah - Feedback</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Pureté Boudah</h1>
+    <p class="tagline">Tell us what you think of our product!</p>
+
+    <form id="feedback-form">
+      <label>Have you tested our product?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="tested" value="yes" required> Yes</label>
+        <label><input type="radio" name="tested" value="no"> No</label>
+      </div>
+
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required />
+
+      <label>Your Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+
+      <label>Which product did you test?</label>
+      <select id="product" required>
+        <option value="">Select a product</option>
+        <option value="Tea">Tea</option>
+        <option value="Detox Capsules">Detox Capsules</option>
+        <option value="Natural Cream">Natural Cream</option>
+      </select>
+
+      <label>Your Feedback</label>
+      <textarea id="feedback" rows="4" placeholder="Write your thoughts..." required></textarea>
+
+      <button type="submit">Send Feedback</button>
+    </form>
+
+    <div id="success-message" class="hidden">✅ Thank you! Your feedback has been received.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

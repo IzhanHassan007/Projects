@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ultimate Keyboard Tester Pro Max 3000</title>
+  <style>
+    :root {
+      --bg-color: #0f1c2e;
+      --text-color: #fff;
+      --key-color: #3e4e5e;
+      --key-hover: #627d98;
+      --key-active: #89c9c8;
+      --timeline-bg: #1f2e3e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      height: 100%;
+    }
+
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .toggle-btn {
+      background: var(--key-hover);
+      border: none;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .keyboard {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-grow: 1;
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+    }
+
+    .key {
+      background: var(--key-color);
+      color: var(--text-color);
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      flex: 1 0 60px;
+      max-width: 80px;
+      transition: all 0.1s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    }
+
+    .key.active {
+      background-color: var(--key-active);
+      color: #000;
+      transform: scale(1.1);
+      box-shadow: 0 0 12px var(--key-active);
+    }
+
+    .timeline {
+      background: var(--timeline-bg);
+      padding: 1rem;
+      border-radius: 5px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+
+    .timeline p {
+      margin: 0.3rem 0;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .key {
+        padding: 0.8rem;
+        flex: 1 0 50px;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .key {
+        padding: 0.6rem;
+        flex: 1 0 40px;
+        font-size: 0.75rem;
+      }
+
+      .keyboard {
+        padding: 0.5rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .key {
+        flex: 1 0 30px;
+        padding: 0.4rem;
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>Keyboard Tester Pro Max 3000 🔥</h1>
+      <button class="toggle-btn" id="toggleMode">Toggle Theme</button>
+    </div>
+
+    <div class="keyboard" id="keyboard"></div>
+    <div class="timeline" id="timeline"></div>
+  </div>
+
+  <audio id="keypressSound" src="https://www.soundjay.com/button/beep-07.wav"></audio>
+
+  <script>
+    const layout = [
+      ["ESC", "F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"],
+      ["~", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "BACKSPACE"],
+      ["TAB", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "[", "]", "\\"],
+      ["CAPS", "A", "S", "D", "F", "G", "H", "J", "K", "L", ";", "'", "ENTER"],
+      ["SHIFT", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "/", "SHIFT"],
+      ["CTRL", "WIN", "ALT", "SPACE", "ALT", "WIN", "MENU", "CTRL"]
+    ];
+
+    const keyboard = document.getElementById("keyboard");
+    const timeline = document.getElementById("timeline");
+    const sound = document.getElementById("keypressSound");
+    const toggleBtn = document.getElementById("toggleMode");
+
+    layout.forEach(row => {
+      const rowDiv = document.createElement("div");
+      rowDiv.classList.add("row");
+      row.forEach(key => {
+        const keyDiv = document.createElement("div");
+        keyDiv.classList.add("key");
+        keyDiv.setAttribute("data-key", key);
+        keyDiv.textContent = key;
+        rowDiv.appendChild(keyDiv);
+      });
+      keyboard.appendChild(rowDiv);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      let key = e.key.toUpperCase();
+      if (key === " ") key = "SPACE";
+      if (key === "ESCAPE") key = "ESC";
+      if (key === "WINDOWS") key = "WIN";
+      if (key === "ARROWLEFT") key = "←";
+      if (key === "ARROWRIGHT") key = "→";
+      if (key === "ARROWUP") key = "↑";
+      if (key === "ARROWDOWN") key = "↓";
+
+      const el = document.querySelector(`.key[data-key='${key}']`);
+      if (el) {
+        el.classList.add("active");
+        sound.currentTime = 0;
+        sound.play();
+
+        const p = document.createElement("p");
+        p.textContent = `${new Date().toLocaleTimeString()} - ${key}`;
+        timeline.prepend(p);
+      }
+    });
+
+    document.addEventListener("keyup", (e) => {
+      let key = e.key.toUpperCase();
+      if (key === " ") key = "SPACE";
+      if (key === "ESCAPE") key = "ESC";
+      if (key === "WINDOWS") key = "WIN";
+
+      const el = document.querySelector(`.key[data-key='${key}']`);
+      if (el) el.classList.remove("active");
+    });
+
+    toggleBtn.addEventListener("click", () => {
+      const root = document.documentElement;
+      if (root.style.getPropertyValue('--bg-color') === '#0f1c2e') {
+        root.style.setProperty('--bg-color', '#f4f4f4');
+        root.style.setProperty('--text-color', '#121212');
+        root.style.setProperty('--key-color', '#ddd');
+        root.style.setProperty('--key-hover', '#bbb');
+        root.style.setProperty('--key-active', '#00aaff');
+        root.style.setProperty('--timeline-bg', '#ccc');
+      } else {
+        root.style.setProperty('--bg-color', '#0f1c2e');
+        root.style.setProperty('--text-color', '#fff');
+        root.style.setProperty('--key-color', '#3e4e5e');
+        root.style.setProperty('--key-hover', '#627d98');
+        root.style.setProperty('--key-active', '#89c9c8');
+        root.style.setProperty('--timeline-bg', '#1f2e3e');
+      }
+    });
+  </script>
+</body>
+</html>
