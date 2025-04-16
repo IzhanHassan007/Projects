@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Savings Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <h1 id="title">💸 Savings Calculator</h1>
+    <form id="savingsForm">
+      <label for="monthly-savings">Monthly Savings ($):</label>
+      <input type="number" id="monthly-savings" required placeholder="e.g. 200" />
+
+      <label for="years">Years of Saving:</label>
+      <input type="number" id="years" required placeholder="e.g. 5" />
+
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

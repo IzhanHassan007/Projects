@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IPPT Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>IPPT Calculator 🏃‍♂️</h1>
+    <form id="ipptForm" class="fade-in">
+      <input type="number" id="age" placeholder="Enter Age" required>
+      <input type="number" id="pushups" placeholder="Push-Ups (Reps)" required>
+      <input type="number" id="situps" placeholder="Sit-Ups (Reps)" required>
+      <input type="text" id="runTime" placeholder="2.4km Time (MM:SS)" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="result" class="result-box"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+  <circle id="btn-0" cx="100" cy="60" r="20" fill="#444"/>
+  <circle id="btn-1" cx="150" cy="60" r="20" fill="#444"/>
+  <circle id="btn-2" cx="200" cy="60" r="20" fill="#444"/>
+  <circle id="btn-3" cx="250" cy="60" r="20" fill="#444"/>
+  <text id="axis-0" x="100" y="150" fill="#fff" font-size="14">0</text>
+  <text id="axis-1" x="150" y="150" fill="#fff" font-size="14">0</text>
+</svg>

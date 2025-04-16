@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hourly Salary Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <h1 id="title">🕒 Hourly Salary Calculator</h1>
+    <form id="hourlyForm">
+      <label for="hourly-rate">Hourly Rate ($):</label>
+      <input type="number" id="hourly-rate" required placeholder="e.g. 20" />
+
+      <label for="hours-per-week">Hours Per Week:</label>
+      <input type="number" id="hours-per-week" required placeholder="e.g. 40" />
+
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

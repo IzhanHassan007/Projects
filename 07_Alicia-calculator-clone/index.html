@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alicia Calculator - Main</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <h1 id="title">💰 Select a Calculator</h1>
+
+    <div id="language-switch">
+      <button id="en-btn" onclick="switchLanguage('en')">English</button>
+      <button id="ur-btn" onclick="switchLanguage('ur')">اردو</button>
+    </div>
+
+    <!-- Dropdown for selecting calculators -->
+    <div class="dropdown">
+      <select id="calculator-select" onchange="location = this.value;">
+        <option value="hourly.html">Hourly Salary Calculator</option>
+        <option value="savings.html">Savings Calculator</option>
+        <option value="bonuses.html">Bonus Calculator</option>
+        <option value="index.html">Back to Main</option>
+      </select>
+    </div>
+  </div>
+
+  <script src="language.js"></script>
+</body>
+</html>

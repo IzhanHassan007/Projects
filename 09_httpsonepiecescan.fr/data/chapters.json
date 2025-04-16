@@ -1,0 +1,23 @@
+{
+    "chapters": [
+      {
+        "id": "chapter1",
+        "title": "Chapter 1: Romance Dawn",
+        "pages": [
+          "images/chapter1/page1.jpg",
+          "images/chapter1/page2.jpg",
+          "images/chapter1/page3.jpg"
+        ]
+      },
+      {
+        "id": "chapter2",
+        "title": "Chapter 2: They Call Him Straw Hat Luffy",
+        "pages": [
+          "images/chapter2/page1.jpg",
+          "images/chapter2/page2.jpg",
+          "images/chapter2/page3.jpg"
+        ]
+      }
+    ]
+  }
+  
